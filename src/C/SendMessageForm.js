@@ -4,7 +4,7 @@ export default class SendMessageForm extends Component {
   constructor() {
     super();
     this.state = {
-      message: "@"
+      message: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
