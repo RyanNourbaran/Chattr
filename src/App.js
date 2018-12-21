@@ -19,8 +19,8 @@ const DUMMY_DATA = [
 const instanceLocator = "v1:us1:91261234-cbed-48b8-9374-8ff1012e8b1b";
 const testToken =
   "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/91261234-cbed-48b8-9374-8ff1012e8b1b/token";
-const username = "Arvalic";
-const roomId = 19376309;
+const username = "Arya";
+const roomId = "19376309";
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ class App extends Component {
     this.state = {
       messages: DUMMY_DATA
     };
+    this.sendMessage = this.sendMessage.bind(this);
   }
   componentDidMount() {
     const chatManager = new Chatkit.ChatManager({

@@ -7,6 +7,7 @@ export default class SendMessageForm extends Component {
       message: "@"
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -15,9 +16,6 @@ export default class SendMessageForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log("@handleSubmit");
-
-    console.log(this.props);
     this.props.sendMessage(this.state.message);
     this.setState({
       message: ""
