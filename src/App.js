@@ -23,7 +23,29 @@ class App extends React.Component {
       messages: DUMMY_DATA
     };
   }
+  componentDidMount() {
+    const chatManager = new Chatkit.ChatManager({
+      instanceLocator: instanceLocator,
+      userId: "janedoe",
+      tokenProvider: new Chatkit.TokenProvider({
+        url: testToken
+      })
+    });
 
+    chatManager.connect().then(currentUser => {
+      this.currentUser = currentUser;
+      this.currentUser.subscribeToRoom({
+        roomId: roomId,
+        hooks: {
+          onNewMessage: message => {
+            this.setState({
+              messages: [...this.state.messages, message]
+            });
+          }
+        }
+      });
+    });
+  }
   render() {
     return (
       <div className="app">
