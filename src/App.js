@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Title from "./C/Title";
 import MessageList from "./C/MessageList";
@@ -26,7 +25,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: DUMMY_DATA
+      messages: []]
     };
     this.sendMessage = this.sendMessage.bind(this);
   }
@@ -50,6 +49,7 @@ class App extends Component {
           }
         }
       });
+      this.currentUser = currentUser;
     });
   }
   sendMessage(text) {
@@ -57,6 +57,7 @@ class App extends Component {
       text,
       roomId: roomId
     });
+    console.log(text);
   }
   render() {
     return (
